@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BTTuan1</title>
-</head>
-
-<body>
-    <script>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BTTuan1</title>
+    </head>
+    <body>
+        <script>
         // Coding challenge 1 & 2
-        console.log("Coding challing 1 & 2-----------------");
+        console.log("Coding challenge 1 & 2-----------------");
 
         function calculateBMI(mass, height) {
             return mass / height ** 2;
@@ -59,11 +57,31 @@
         console.log(`The winner is ${winner}`);
 
         // Coding challenge 4
-        console.log("Codibng challenge 4------------------");
-        const billVolue = 275;
-        const tip = billVolue >= 50 && billVolue <= 300 ? billVolue * 0.15 : billVolue * 0.2;
-        const totoValue = billVolue + tip;
-    </script>
-</body>
+        console.log("Coding challenge 4 ------------------");
+        const billValue = 275;
+        const tip = billValue >= 50 && billValue <= 300 ? billValue * 0.15 : billValue * 0.2;
+        const totalValue = billValue + tip;
+        const message1 = `The bill was ${billValue}, the tip was ${tip}, and the total value was ${totalValue}`;
+        console.log(message1);
 
+        // Coding challenge 5
+        console.log("Coding challenge 5 ------------------");
+        const calcAverage = (a,b,c)=> {
+            (a + b + c)/3;
+        }
+
+        const Dolphins = [44,23,71];
+        const Koalas = [65,54,49];
+        const DolphinsAver = calcAverage(...Dolphins);
+        const KoalasAver = calcAverage(...Koalas);
+
+        const checkWinner = (avgDolphins, avgKoalas) => {
+            if (avgDolphins * 2 >= avgKoalas) {
+                console.log("");
+            }
+        }
+
+
+        </script>
+    </body>
 </html>
