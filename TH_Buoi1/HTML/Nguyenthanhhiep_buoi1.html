@@ -4,84 +4,12 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="../JS/Buoi1.js"></script>
+        <script src="../JS/Codingchallenge6.js"></script>
+        <script src="../JS/Codingchallenge7.js"></script>
+        <script src="../JS/Codingchallenge8.js"></script>
+        <script src="../JS/Codingchallenge9.js"></script>
         <title>BTTuan1</title>
     </head>
-    <body>
-        <script>
-        // Coding challenge 1 & 2
-        console.log("Coding challenge 1 & 2-----------------");
-
-        function calculateBMI(mass, height) {
-            return mass / height ** 2;
-        };
-
-        const Markmass = 78;
-        const Markheight = 1.69;
-        const Johnmass = 95;
-        const Johnheight = 1.88;
-
-        const MarkBMI = calculateBMI(Markmass, Markheight);
-        const JohnBMI = calculateBMI(Johnmass, Johnheight);
-
-        const markHigherBMI = MarkBMI > JohnBMI;
-
-        const message = `Mark BMI (${MarkBMI}) is higher than John (${JohnBMI})!`;
-
-        console.log("BMI Mark: ", MarkBMI);
-        console.log("BMI John: ", JohnBMI);
-        console.log(markHigherBMI);
-        console.log(message);
-
-        // Coding challenge 3
-        console.log("Coding challenge 3 ------------------");
-        const dolphinsScores = [96, 108, 89];
-        const koalasScores = [88, 91, 110];
-
-        const dolphinsAverageScore = dolphinsScores.reduce((accumulator, currentValue) => {
-            return accumulator + currentValue;
-        }, 0) / dolphinsScores.length;
-
-        const koalasAverageScore = koalasScores.reduce((accumulator, currentValue) => {
-            return accumulator + currentValue;
-        }, 0) / koalasScores.length;
-
-        let winner;
-
-        if (dolphinsAverageScore > koalasAverageScore && dolphinsAverageScore >= 100) {
-            winner = "Dolphins";
-        } else if (koalasAverageScore > dolphinsAverageScore && koalasAverageScore >= 100) {
-            winner = "Koalas";
-        } else {
-            winner = "Draw";
-        }
-        console.log(`The winner is ${winner}`);
-
-        // Coding challenge 4
-        console.log("Coding challenge 4 ------------------");
-        const billValue = 275;
-        const tip = billValue >= 50 && billValue <= 300 ? billValue * 0.15 : billValue * 0.2;
-        const totalValue = billValue + tip;
-        const message1 = `The bill was ${billValue}, the tip was ${tip}, and the total value was ${totalValue}`;
-        console.log(message1);
-
-        // Coding challenge 5
-        console.log("Coding challenge 5 ------------------");
-        const calcAverage = (a,b,c)=> {
-            (a + b + c)/3;
-        }
-
-        const Dolphins = [44,23,71];
-        const Koalas = [65,54,49];
-        const DolphinsAver = calcAverage(...Dolphins);
-        const KoalasAver = calcAverage(...Koalas);
-
-        const checkWinner = (avgDolphins, avgKoalas) => {
-            if (avgDolphins * 2 >= avgKoalas) {
-                console.log("");
-            }
-        }
-
-
-        </script>
-    </body>
+    <body></body>
 </html>
