@@ -1,0 +1,39 @@
+body {
+  font-family: sans-serif;
+}
+
+.container {
+  width: 300px;
+  margin: 0 auto;
+}
+
+.number {
+  width: 15rem;
+  background-color: #222;
+  color: #fff;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.message {
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.score {
+  margin-top: 1rem;
+}
+
+input {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+button {
+  background-color: #337ab7;
+  color: #fff;
+  padding: 1rem;
+  border: none;
+  cursor: pointer;
+}
