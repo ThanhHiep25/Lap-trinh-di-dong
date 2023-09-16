@@ -12,7 +12,8 @@ const secretNumber = Math.floor(Math.random() * 100) + 1;
 function resetGame() {
   // Khôi phục giá trị ban đầu của biến 'score' và 'secretNumber'
   const score = 0;
-  const secretNumber = Math.floor(Math.random() * 100) + 1;
+  let secretNumber;
+  secretNumber = Math.floor(Math.random() * 100) + 1;
   // Khôi phục các điều kiện ban đầu của các trường nhập tin nhắn, số, điểm và đoán
   message.textContent = "";
   number.textContent = "";
