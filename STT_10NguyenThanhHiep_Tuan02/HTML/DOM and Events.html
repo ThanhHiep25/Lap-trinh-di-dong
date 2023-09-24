@@ -4,21 +4,18 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../CSS/DOM.css">
-        <script src="../JS/DOM.js"></script>
         <title>DOM and Events</title>
     </head>
     <body>
-        <div class="container">
-            <h1>Guess the Number</h1>
-            <div class="number">
-                <span id="number"></span>
-            </div>
-            <div class="message"></div>
-            <div class="score">
-                <span id="score">0</span>
-            </div>
-            <input type="text" id="guess" placeholder="Enter your guess">
-            <button class="again">Guess Again</button>
-        </div>
+        <h1>Guess the number</h1>
+        <p>The number is between 1 and 100.</p>
+        <input type="text" id="guess" placeholder="Your guess">
+        <button id="submit">Submit</button>
+        <button class="again">Again</button>
+        <div id="message"></div>
+        <div id="number"></div>
+        <div id="score"></div>
+      
+        <script src="../JS/DOM.js"></script>
     </body>
 </html>
