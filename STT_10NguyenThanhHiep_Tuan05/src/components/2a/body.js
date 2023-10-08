@@ -13,7 +13,7 @@ const Body = () => {
   var [name, setName] = useState("");
   var [pass, setPass] = useState("");
   var [isVisible, setIsVisible] = useState(false);
-  var data = [{ name: "abc", pass: "12345678" }];
+  var data = [{ name: "abc", pass: "12345678" },{name: "akaka", pass: "211011"}];
 
   const handleLogin = () => {
     const user = data.find((user) => user.name == name && user.pass == pass);
