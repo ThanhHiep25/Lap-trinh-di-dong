@@ -13,7 +13,10 @@ const Body = () => {
   var [name, setName] = useState("");
   var [pass, setPass] = useState("");
   var [isVisible, setIsVisible] = useState(false);
-  var data = [{ name: "abc", pass: "12345678" },{name: "akaka", pass: "211011"}];
+  var data = [
+    { name: "abc", pass: "12345678" },
+    { name: "akaka", pass: "211011" },
+  ];
 
   const handleLogin = () => {
     const user = data.find((user) => user.name == name && user.pass == pass);
@@ -99,7 +102,7 @@ const styles = StyleSheet.create({
     width: 32,
     height: 32,
     position: "absolute",
-    left:-40,
+    left: -40,
     marginTop: 30,
   },
   textInname: {
