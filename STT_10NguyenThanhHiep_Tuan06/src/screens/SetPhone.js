@@ -1,26 +1,70 @@
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import React from "react";
 import { Image, Text, View, StyleSheet, Pressable } from "react-native";
+import phoneList from "../../data";
 
-const Set = (route) => {
-    const navigation = useNavigation();
+const Set = () => {
+  const navigation = useNavigation();
+  const route = useRoute();
+  const handleColor = () => {
+    navigation.navigate({
+      name: "Home",
+      params: { color: route.params.color },
+      merge: true,
+    });
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.view}>
         <Image
-          source={require("../../assets/IMG/vs_black.png")}
+          source={require(`../../assets/IMG/${route.params.color}`)}
           style={styles.img}
         ></Image>
-        <Text style={styles.text}>Điện Thoại Vsmart Joy 3 Hàng chính hãng</Text>
+        <Text style={styles.text}>Điện Thoại Vsmart Joy 3 Hàng chính hãng    -</Text>
+        <Text style={styles.text}>{route.params.name}</Text>
       </View>
 
       <View style={styles.view1}>
         <Text style={styles.text1}>Chọn màu mong muốn:</Text>
-        <Pressable style={styles.Pre1}></Pressable>
-        <Pressable style={styles.Pre2}></Pressable>
-        <Pressable style={styles.Pre3}></Pressable>
-        <Pressable style={styles.Pre4}></Pressable>
-        <Pressable style={styles.Pre5}>
+        <Pressable
+          style={styles.Pre1}
+          onPress={() =>
+            navigation.setParams(
+              ((route.params.color = phoneList[0].imageLocal),
+              (route.params.name = phoneList[0].name))
+            )
+          }
+          key="silver"
+        ></Pressable>
+        <Pressable
+          style={styles.Pre2}
+          onPress={() =>
+            navigation.setParams(
+              ((route.params.color = phoneList[1].imageLocal),
+              (route.params.name = phoneList[1].name))
+            )
+          }
+        ></Pressable>
+        <Pressable
+          style={styles.Pre3}
+          onPress={() =>
+            navigation.setParams(
+              ((route.params.color = phoneList[2].imageLocal),
+              (route.params.name = phoneList[2].name))
+            )
+          }
+        ></Pressable>
+        <Pressable
+          style={styles.Pre4}
+          onPress={() =>
+            navigation.setParams(
+              ((route.params.color = phoneList[3].imageLocal),
+              (route.params.name = phoneList[3].name))
+            )
+          }
+        ></Pressable>
+        <Pressable style={styles.Pre5} onPress={() => handleColor()}>
           <Text style={styles.text2}>Xong</Text>
         </Pressable>
       </View>
@@ -63,7 +107,7 @@ const styles = StyleSheet.create({
   },
   text2: {
     textAlign: "center",
-    padding:10,
+    padding: 10,
     fontSize: 18,
     fontWeight: 500,
   },

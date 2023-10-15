@@ -1,15 +1,27 @@
-import { useNavigation } from "@react-navigation/native";
-import React from "react";
+import { useNavigation, useRoute } from "@react-navigation/native";
+import React, { useState, useEffect } from "react";
 import { Image, Text, View, StyleSheet, Pressable } from "react-native";
 import { Rating } from "react-native-ratings";
 
-const Home = (route) => {
+const Home = () => {
   const navigation = useNavigation();
+  const route = useRoute();
+  const [color, setColor] = useState("vs_black.png");
+  const [name , setName] = useState("Black")
+  const handleChoose = () => {
+    navigation.navigate("Set", { color },{ name });
+  };
+
+  useEffect(() => {
+    if (route.params?.color) {
+    }
+  }, [route.params?.color]);
+
   return (
     <View style={styles.container}>
       <View style={styles.view}>
         <Image
-          source={require("../../assets/IMG/vs_black.png")}
+          source={require(`../../assets/IMG/${route.params?.color ?? color}`)}
           style={styles.imgB}
         ></Image>
       </View>
@@ -42,7 +54,7 @@ const Home = (route) => {
       </View>
 
       <View style={styles.group3}>
-        <Pressable style={styles.Pre} onPress={()=>navigation.navigate('Set')}>
+        <Pressable style={styles.Pre} onPress={() => handleChoose()}>
           <Text style={styles.text5}>Chọn màu mong muốn</Text>
           <Image
             source={require("../../assets/IMG/Vector.png")}
@@ -52,7 +64,7 @@ const Home = (route) => {
       </View>
 
       <View style={styles.group4}>
-        <Pressable style={styles.btn}>
+        <Pressable style={styles.btn} onPress={() => alert('Xác nhận mua thành công!!!')}>
           <Text style={styles.textBtn}>CHỌN MUA</Text>
         </Pressable>
       </View>
@@ -106,12 +118,12 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: "center",
   },
-  textBtn:{
-    textAlign:'center',
-    color:'#fff',
-    fontSize:20,
-    fontWeight:500,
-    padding:10,
+  textBtn: {
+    textAlign: "center",
+    color: "#fff",
+    fontSize: 20,
+    fontWeight: 500,
+    padding: 10,
   },
   imgB: {
     width: 301,
@@ -138,11 +150,11 @@ const styles = StyleSheet.create({
     width: 300,
     padding: 10,
   },
-  btn:{
-    height:50,
-    width:370,
-    backgroundColor:"red",
-    borderRadius:20,
+  btn: {
+    height: 50,
+    width: 370,
+    backgroundColor: "red",
+    borderRadius: 20,
   },
   group: {
     flexDirection: "row",
@@ -160,9 +172,9 @@ const styles = StyleSheet.create({
   },
   group4: {
     flex: 1,
-    alignItems:'center',
-    justifyContent:'center',
-    marginTop:30,
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 30,
   },
 });
 
