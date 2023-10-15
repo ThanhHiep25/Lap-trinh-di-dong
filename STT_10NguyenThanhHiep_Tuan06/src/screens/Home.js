@@ -1,8 +1,10 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { Image, Text, View, StyleSheet } from "react-native";
+import { Image, Text, View, StyleSheet, Pressable } from "react-native";
 import { Rating } from "react-native-ratings";
 
-const Home = () => {
+const Home = (route) => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <View style={styles.view}>
@@ -21,7 +23,6 @@ const Home = () => {
       <View style={styles.group}>
         <Rating
           imageSize={25}
-          // onFinishRating={this.ratingCompleted}
           style={{ paddingVertical: 10, paddingLeft: 20 }}
         />
         <Text style={styles.text1}>(Xem 200 đánh giá)</Text>
@@ -34,10 +35,27 @@ const Home = () => {
 
       <View style={styles.group2}>
         <Text style={styles.text4}>Ở đâu rẻ hơn thì mua</Text>
-        <Image source={require('../../assets/IMG/question.png')} style={styles.imgQ}/>
+        <Image
+          source={require("../../assets/IMG/question.png")}
+          style={styles.imgQ}
+        />
       </View>
 
-      <View></View>
+      <View style={styles.group3}>
+        <Pressable style={styles.Pre} onPress={()=>navigation.navigate('Set')}>
+          <Text style={styles.text5}>Chọn màu mong muốn</Text>
+          <Image
+            source={require("../../assets/IMG/Vector.png")}
+            style={styles.imgV}
+          ></Image>
+        </Pressable>
+      </View>
+
+      <View style={styles.group4}>
+        <Pressable style={styles.btn}>
+          <Text style={styles.textBtn}>CHỌN MUA</Text>
+        </Pressable>
+      </View>
     </View>
   );
 };
@@ -84,16 +102,47 @@ const styles = StyleSheet.create({
     fontWeight: 600,
     color: "red",
   },
+  text5: {
+    fontSize: 16,
+    textAlign: "center",
+  },
+  textBtn:{
+    textAlign:'center',
+    color:'#fff',
+    fontSize:20,
+    fontWeight:500,
+    padding:10,
+  },
   imgB: {
     width: 301,
     height: 361,
     resizeMode: "contain",
     alignItems: "center",
   },
-  imgQ:{
-    width:20,
-    height:20,
-    marginTop:20,
+  imgQ: {
+    width: 20,
+    height: 20,
+    marginTop: 20,
+  },
+  imgV: {
+    width: 12,
+    height: 14,
+    position: "absolute",
+    margin: 5,
+    marginLeft: 250,
+  },
+  Pre: {
+    borderWidth: 1,
+    borderRadius: 20,
+    height: 50,
+    width: 300,
+    padding: 10,
+  },
+  btn:{
+    height:50,
+    width:370,
+    backgroundColor:"red",
+    borderRadius:20,
   },
   group: {
     flexDirection: "row",
@@ -103,8 +152,17 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   group2: {
-    flex:1,
     flexDirection: "row",
+  },
+  group3: {
+    flexDirection: "row",
+    marginLeft: 20,
+  },
+  group4: {
+    flex: 1,
+    alignItems:'center',
+    justifyContent:'center',
+    marginTop:30,
   },
 });
 
