@@ -8,7 +8,7 @@ const phoneList = [
   },
   { 
     id: 2, 
-    name: 'Read',
+    name: 'Red',
     phoneName: "Vsmart Joy 3", 
     color: "red", 
     imageLocal: "vs_red.png" 

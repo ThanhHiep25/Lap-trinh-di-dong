@@ -9,10 +9,10 @@ import XmEye from "./App/Screens/XmEye";
 
 export default function App() {
   return (
-    //<Home />,
-    //<Home2 />,
-    //<Screens3/>,
-    //(<Login />),
-     (<XmEye />)
+    <Home />
+    //<Home2 />
+    //<Screens3/>
+    //(<Login />)
+     //(<XmEye />)
   );
 }
