@@ -11,7 +11,7 @@ const Header = () => {
         ></Image>
       </Pressable>
 
-      <Text style = {styles.text}>Chat</Text>
+      <Text style={styles.text}>Chat</Text>
 
       <Pressable>
         <Image
@@ -30,16 +30,19 @@ const styles = StyleSheet.create({
     alignItems: "center",
     height: 50,
     backgroundColor: "#1BA9FF",
+    position: "sticky",
+    top: 0,
+    zIndex: 1,
   },
   img: {
     width: 24,
     height: 24,
   },
-  text:{
-    color:'#ffff',
-    fontSize:20,
-    fontWeight:500,
-  }
+  text: {
+    color: "#ffff",
+    fontSize: 20,
+    fontWeight: 500,
+  },
 });
 
 export default Header;
