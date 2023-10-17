@@ -2,10 +2,8 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
 import { View, StyleSheet, Text, Image, Pressable } from "react-native";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
-import { useNavigation } from "@react-navigation/native";
 
 const Footer = () => {
-  const navigation = useNavigation();
   const Tab = createMaterialBottomTabNavigator();
   return (
     <View style={styles.container}>
@@ -16,7 +14,7 @@ const Footer = () => {
         ></Image>
       </Pressable>
 
-      <Pressable onPress={()=>{navigation.navigate('Seach')}}>
+      <Pressable>
         <Image
           source={require("../../../assets/IMG/home.png")}
           style={styles.img}

@@ -15,7 +15,7 @@ const Body = () => {
         <View style={styles.view1}>
           <Image source={item.imageLocal} style={styles.img} />
 
-          <View style={styles.view2}>
+           <View style={styles.view2}>
             <Text style={styles.text}>{item.name}</Text>
             <Text style={styles.text1}>Shop : {item.shop}</Text>
           </View>
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     padding:20,
     margin:5,
     borderRadius:20,
-    backgroundColor:'#D0D4CA'
+    backgroundColor:'#EBFFFA'
   },
   view2: {
     flexDirection: "column",

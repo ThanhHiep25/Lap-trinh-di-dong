@@ -4,6 +4,7 @@ import  Header  from "../components/Homescreen/Header";
 import Body from "../components/Homescreen/Body";
 import Footer from "../components/Homescreen/Footer";
 
+
 const Home = () => {
   return (
     <View style={styles.container}>

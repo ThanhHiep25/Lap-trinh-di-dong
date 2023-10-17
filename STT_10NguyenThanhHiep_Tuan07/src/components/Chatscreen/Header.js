@@ -1,31 +1,25 @@
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { View, StyleSheet, Text, Image, Pressable } from "react-native";
-import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
-import { useNavigation } from "@react-navigation/native";
 
-const Footer = () => {
+const Header = () => {
   const navigation = useNavigation();
-  const Tab = createMaterialBottomTabNavigator();
   return (
     <View style={styles.container}>
-      <Pressable>
+      <Pressable onPress={() => {
+            navigation.goBack()
+          }}>
         <Image
-          source={require("../../../assets/IMG/list.png")}
+          source={require("../../../assets/IMG/outlined.png")}
           style={styles.img}
         ></Image>
       </Pressable>
 
-      <Pressable onPress={()=>{navigation.navigate('Seach')}}>
-        <Image
-          source={require("../../../assets/IMG/home.png")}
-          style={styles.img}
-        ></Image>
-      </Pressable>
+      <Text style={styles.text}>Chat</Text>
 
       <Pressable>
         <Image
-          source={require("../../../assets/IMG/previous.png")}
+          source={require("../../../assets/IMG/bi_cart-check.png")}
           style={styles.img}
         ></Image>
       </Pressable>
@@ -38,10 +32,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "center",
-    height: 80,
+    height: 50,
     backgroundColor: "#1BA9FF",
     position: "sticky",
-    bottom: 0,
+    top: 0,
     zIndex: 1,
   },
   img: {
@@ -55,4 +49,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Footer;
+export default Header;

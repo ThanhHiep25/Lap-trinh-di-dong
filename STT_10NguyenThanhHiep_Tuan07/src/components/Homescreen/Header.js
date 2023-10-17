@@ -1,10 +1,11 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { View, StyleSheet, Text, Image, Pressable } from "react-native";
 
 const Header = () => {
   return (
     <View style={styles.container}>
-      <Pressable>
+      <Pressable >
         <Image
           source={require("../../../assets/IMG/outlined.png")}
           style={styles.img}
