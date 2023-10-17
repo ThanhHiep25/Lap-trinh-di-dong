@@ -1,7 +1,7 @@
 import React from 'react';
 import {  StyleSheet, Text, View, } from 'react-native';
-import Header from '../components/Chatscreen/Header';
-import Footer from '../components/Chatscreen/Footer';
+import Header from '../components/Seachscreen/Header';
+import Footer from '../components/Seachscreen/Footer';
 
 const Seach = () => {
     return(
