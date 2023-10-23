@@ -9,7 +9,7 @@ const Footer = () => {
   const Tab = createMaterialBottomTabNavigator();
   return (
     <View style={styles.container}>
-      <Pressable>
+      <Pressable> 
         <Image
           source={require("../../../assets/IMG/list.png")}
           style={styles.img}

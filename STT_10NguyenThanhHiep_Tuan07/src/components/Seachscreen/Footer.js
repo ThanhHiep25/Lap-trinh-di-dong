@@ -4,7 +4,6 @@ import { View, StyleSheet, Text, Image, Pressable } from "react-native";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 
 const Footer = () => {
-  const Tab = createMaterialBottomTabNavigator();
   return (
     <View style={styles.container}>
       <Pressable>
