@@ -6,18 +6,20 @@ import data from "../../data";
 const CakePopup = () => {
   const navigation = useNavigation();
   const route = useRoute();
+  const [selectedProduct, setSelectedProduct] = useState("");
   const [count, setCount] = useState(1);
 
   var item = route.params;
   useEffect(() => {
     if (route.params?.selectedProduct) {
+       
     }
   }, [route.params?.selectedProduct]);
 
   return (
     <View style={styles.container}>
       <View style={styles.view}>
-        <Image source={item.img} style={styles.img}></Image>
+        <Image source={`${route.params?.selectedProduct ?? item.img}`} style={styles.img}></Image>
       </View>
 
       <View style={styles.view1}>

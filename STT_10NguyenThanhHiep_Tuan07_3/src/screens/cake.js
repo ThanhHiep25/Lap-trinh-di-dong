@@ -14,7 +14,7 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 const Cake = () => {
   const navigation = useNavigation();
   const route = useRoute();
-  const [selectedProduct, setSelectedProduct] = useState("item");
+  const [selectedProduct, setSelectedProduct] = useState("");
   const [color, SetColor] = useState(1);
   const [state, setSate] = useState(dataCake);
   const [name, setName] = useState();
