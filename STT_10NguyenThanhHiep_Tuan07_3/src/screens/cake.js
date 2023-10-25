@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   FlatList,
   Image,
@@ -8,10 +8,16 @@ import {
   TextInput,
   View,
 } from "react-native";
-
 import dataCake from "../../data";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 const Cake = () => {
+  const navigation = useNavigation();
+  const route = useRoute();
+  const [selectedProduct, setSelectedProduct] = useState('');
+  const [color, SetColor] = useState(1);
+
+
   return (
     <View style={styles.container}>
       <View>
@@ -43,7 +49,12 @@ const Cake = () => {
         <FlatList
           data={dataCake}
           renderItem={({ item }) => (
-            <Pressable style={styles.Precake}>
+            <Pressable
+              style={styles.Precake}
+              onPress={() => {
+                navigation.navigate('CakePopup', item);
+              }}
+            >
               <View style={styles.view3}>
                 <Image source={item.img} style={styles.img1}></Image>
 
@@ -137,9 +148,9 @@ const styles = StyleSheet.create({
     width: 45,
     borderRadius: 10,
     resizeMode: "contain",
-    position:'absolute',
-    left:270,
-    top:62,
+    position: "absolute",
+    left: 270,
+    top: 62,
   },
   Pre: {
     width: 101,
