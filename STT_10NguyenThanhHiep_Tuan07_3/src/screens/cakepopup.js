@@ -6,20 +6,18 @@ import data from "../../data";
 const CakePopup = () => {
   const navigation = useNavigation();
   const route = useRoute();
+  const [count, setCount] = useState(1);
+
   var item = route.params;
   useEffect(() => {
     if (route.params?.selectedProduct) {
-     
     }
   }, [route.params?.selectedProduct]);
 
   return (
     <View style={styles.container}>
       <View style={styles.view}>
-        <Image
-          source={item.img}
-          style={styles.img}
-        ></Image>
+        <Image source={item.img} style={styles.img}></Image>
       </View>
 
       <View style={styles.view1}>
@@ -44,15 +42,37 @@ const CakePopup = () => {
         </View>
 
         <View style={styles.view4}>
-          <Image
-            source={require("../../assets/IMG/Group 16.png")}
-            style={styles.imgCount}
-          ></Image>
-          <Text style={styles.textCount}>1</Text>
-          <Image
-            source={require("../../assets/IMG/Group 15.png")}
-            style={styles.imgCount}
-          ></Image>
+          <Pressable
+            onPress={() => {
+              const tru = (lis) =>{
+                if (count > 0) {
+                  return lis = count -1;
+                }else {
+                  return lis = count;
+                }
+              }
+              setCount(tru);
+            }}
+          >
+            <Image
+              source={require("../../assets/IMG/Group 16.png")}
+              style={styles.imgCount}
+            ></Image>
+          </Pressable>
+
+          <Text style={styles.textCount}>{count}</Text>
+
+          <Pressable
+            onPress={() => {
+              const sum = count + 1;
+              setCount(sum);
+            }}
+          >
+            <Image
+              source={require("../../assets/IMG/Group 15.png")}
+              style={styles.imgCount}
+            ></Image>
+          </Pressable>
         </View>
       </View>
 
@@ -63,7 +83,6 @@ const CakePopup = () => {
           from other places at the same price range.
         </Text>
       </View>
-      
 
       <View style={styles.view6}>
         <Pressable style={styles.Pre}>
@@ -117,7 +136,7 @@ const styles = StyleSheet.create({
   img: {
     width: 272,
     height: 272,
-    resizeMode:'contain',
+    resizeMode: "contain",
   },
   imgVector: {
     width: 20,

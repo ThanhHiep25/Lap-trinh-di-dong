@@ -14,9 +14,10 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 const Cake = () => {
   const navigation = useNavigation();
   const route = useRoute();
-  const [selectedProduct, setSelectedProduct] = useState('');
+  const [selectedProduct, setSelectedProduct] = useState("item");
   const [color, SetColor] = useState(1);
-
+  const [state, setSate] = useState(dataCake);
+  const [name, setName] = useState();
 
   return (
     <View style={styles.container}>
@@ -26,33 +27,80 @@ const Cake = () => {
       </View>
 
       <View style={styles.view}>
-        <TextInput style={styles.textIn} placeholder="Search Food"></TextInput>
-        <Image
-          source={require("../../assets/IMG/Group.png")}
-          style={styles.img}
-        ></Image>
+        <TextInput
+          style={styles.textIn}
+          value={name}
+          onChangeText={setName}
+          placeholder="Search Food"
+        ></TextInput>
+        <Pressable
+          onPress={() => {
+            const newdata = dataCake.filter((item) => {
+              return (item.name == name);
+            });
+            setSate(newdata);
+          }}
+        >
+          <Image
+            source={require("../../assets/IMG/Group.png")}
+            style={styles.img}
+          ></Image>
+        </Pressable>
       </View>
 
       <View style={styles.view1}>
-        <Pressable style={styles.Pre}>
+        <Pressable
+          style={[
+            styles.Pre,
+            color == 1 ? { backgroundColor: "#F1B000" } : null,
+          ]}
+          onPress={() => {
+            setSate(dataCake);
+            SetColor(1);
+          }}
+        >
           <Text style={styles.text2}>Donut</Text>
         </Pressable>
-        <Pressable style={styles.Pre}>
+        <Pressable
+          style={[
+            styles.Pre,
+            color == 2 ? { backgroundColor: "#F1B000" } : null,
+          ]}
+          onPress={() => {
+            const newdata = dataCake.filter((item) => {
+              return item.des == "pink";
+            });
+            setSate(newdata);
+            SetColor(2);
+          }}
+        >
           <Text style={styles.text2}>Pink Donut</Text>
         </Pressable>
-        <Pressable style={styles.Pre}>
+        <Pressable
+          style={[
+            styles.Pre,
+            color == 3 ? { backgroundColor: "#F1B000" } : null,
+          ]}
+          onPress={() => {
+            const newdata = dataCake.filter((item) => {
+              return item.des == "floating";
+            });
+            setSate(newdata);
+            SetColor(3);
+          }}
+        >
           <Text style={styles.text2}>Floating</Text>
         </Pressable>
       </View>
 
       <View style={styles.view2}>
         <FlatList
-          data={dataCake}
+          data={state}
           renderItem={({ item }) => (
             <Pressable
               style={styles.Precake}
               onPress={() => {
-                navigation.navigate('CakePopup', item);
+                navigation.navigate("CakePopup", item);
               }}
             >
               <View style={styles.view3}>
