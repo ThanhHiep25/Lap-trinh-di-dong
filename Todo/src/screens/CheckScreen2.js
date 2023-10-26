@@ -41,7 +41,7 @@ export const CheckScreen2 = ({ navigation }) => {
             style={styles.img}
           />
           <View>
-            <Text style={styles.text}></Text>
+            <Text style={styles.text}>{item.name}</Text>
             <Text style={styles.text1}>Have a good day</Text>
           </View>
         </View>

@@ -27,7 +27,7 @@ const Home = () => {
       </View>
 
       <View style={styles.view1}>
-        <Text style={styles.text}>
+        <Text style={styles.text}> 
           Điện Thoại Vsmart Joy 3 - Hàng chính hãng
         </Text>
       </View>

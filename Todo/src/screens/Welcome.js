@@ -49,7 +49,7 @@ export const Welcome = ({ navigation, route }) => {
       </View>
 
       <View style={styles.view2}>
-        <Pressable style={styles.Pre} onPress={handleLogin}>
+        <Pressable style={styles.Pre} onPress={()=>handleLogin()}>
           <Text style={styles.textPre}>GET STARTED</Text>
           <Image
             source={require("../../assets/IMG/right-arrow.png")}

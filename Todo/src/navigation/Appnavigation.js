@@ -10,9 +10,9 @@ export const Appnavigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Welcome" component={Welcome} />
         <Stack.Screen name="Check" component={CheckScreen2} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 };
-<Stack.Screen name="Welcome" component={Welcome} />;
