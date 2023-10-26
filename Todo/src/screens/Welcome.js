@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   View,
@@ -6,9 +6,22 @@ import {
   Image,
   TextInput,
   Pressable,
+  Alert,
 } from "react-native";
+import dataUser from "../../datauser";
 
-export const Welcome = () => {
+export const Welcome = ({ navigation, route }) => {
+  const [name, setUser] = useState("");
+
+  const handleLogin = () => {
+    const user = dataUser.find((user) => user.email == name);
+    if (user) {
+      navigation.navigate("Check", user);
+    } else {
+      alert("Email không có trong data!");
+    }
+  };
+
   return (
     <View style={styles.container}>
       <View>
@@ -27,11 +40,16 @@ export const Welcome = () => {
           source={require("../../assets/IMG/mail.png")}
           style={styles.img1}
         />
-        <TextInput style={styles.textIn} placeholder="Email"></TextInput>
+        <TextInput
+          style={styles.textIn}
+          value={name}
+          onChangeText={(text) => setUser(text)}
+          placeholder="Email"
+        ></TextInput>
       </View>
 
       <View style={styles.view2}>
-        <Pressable style={styles.Pre}>
+        <Pressable style={styles.Pre} onPress={handleLogin}>
           <Text style={styles.textPre}>GET STARTED</Text>
           <Image
             source={require("../../assets/IMG/right-arrow.png")}
@@ -100,12 +118,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#FFA33C",
     width: 230,
-    height:50,
-    borderRadius:20,
+    height: 50,
+    borderRadius: 20,
   },
   textPre: {
     fontSize: 20,
     fontWeight: 700,
-    color:'#fff'
+    color: "#fff",
   },
 });
