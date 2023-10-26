@@ -3,43 +3,55 @@ const bikeData = [
     id: 1,
     name: "Pinarello",
     price: "$ 1800",
-    img: require("./assets/IMG/blue_bike.png"), 
-    des: 'bikemountain'
+    img: require("./assets/IMG/blue_bike.png"),
+    des: "bikemountain",
+    sale: "5%",
+    pricesale: "$ 199",
   },
   {
     id: 2,
     name: "Pina Mountai",
     price: "$ 1700",
-    img: require("./assets/IMG/red_bike.png"), 
-    des: 'bikemountain'
+    img: require("./assets/IMG/red_bike.png"),
+    des: "bikemountain",
+    sale: "55%",
+    pricesale: "$ 599",
   },
   {
     id: 3,
     name: "Pup Bike",
     price: "$ 2800",
-    img: require("./assets/IMG/puple_bike.png"), 
-    des: 'bikeR'
+    img: require("./assets/IMG/puple_bike.png"),
+    des: "bikeR",
+    sale: "25%",
+    pricesale: "$ 1299",
   },
   {
     id: 4,
     name: "Pin Bike",
     price: "$ 18800",
-    img: require("./assets/IMG/orange_bike.png"), 
-    des: 'bikeR'
+    img: require("./assets/IMG/orange_bike.png"),
+    des: "bikeR",
+    sale: "25%",
+    pricesale: "$ 499",
   },
   {
     id: 5,
     name: "CC Bike",
     price: "$ 5000",
-    img: require("./assets/IMG/blue_bike.png"), 
-    des: 'bikeR'
+    img: require("./assets/IMG/blue_bike.png"),
+    des: "bikeR",
+    sale: "55%",
+    pricesale: "$ 699",
   },
   {
     id: 6,
     name: "DCM Bike",
-    price: "$ 100",
-    img: require("./assets/IMG/red_bike.png"), 
-    des: 'bikemountain'
+    price: "$ 1000",
+    img: require("./assets/IMG/red_bike.png"),
+    des: "bikemountain",
+    sale: "5%",
+    pricesale: "$ 999",
   },
 ];
 

@@ -3,8 +3,10 @@ import { StyleSheet, View, Text, Image } from "react-native";
 import bikeData from "../../dataBike";
 import { Pressable } from "react-native";
 import { FlatList } from "react-native";
+import { useRoute } from "@react-navigation/native";
 
-export const BikeList = () => {
+export const BikeList = ({ navigation }) => {
+  const route = useRoute();
   const [color, setColor] = useState(1);
   const [bike, setBike] = useState(bikeData);
 
@@ -64,7 +66,12 @@ export const BikeList = () => {
           data={bike}
           numColumns={2}
           renderItem={({ item }) => (
-            <Pressable style={styles.Pre1}>
+            <Pressable
+              style={styles.Pre1}
+              onPress={() => {
+                navigation.navigate("Pay", item);
+              }}
+            >
               <Image
                 source={require("../../assets/IMG/icons_heart.png")}
                 style={styles.img}

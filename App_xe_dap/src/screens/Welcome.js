@@ -3,7 +3,7 @@ import { Pressable } from "react-native";
 import { Image } from "react-native";
 import { StyleSheet, View, Text } from "react-native";
 
-const Welcome = ({ navigation, route }) => {
+const Welcome = ({ navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.view}>
