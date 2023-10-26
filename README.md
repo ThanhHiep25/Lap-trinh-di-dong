@@ -5,6 +5,8 @@
 
 # Navigation:
 npm install @react-navigation/native
+
+
 import { NavigationContainer } from "@react-navigation/native";
 
 
@@ -12,12 +14,16 @@ import { NavigationContainer } from "@react-navigation/native";
 npm install @react-navigation/native-stack
 or
 npm install @react-navigation/stack
+
+
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 
 # Drawer
 
 npm install @react-navigation/drawer
+
+
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
 const Drawer = createDrawerNavigator();
@@ -52,6 +58,8 @@ function MyTabs() {
 # Material Top Tabs Navigator
 
 npm install @react-navigation/material-top-tabs react-native-tab-view
+
+
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
 const Tab = createMaterialTopTabNavigator();
