@@ -10,11 +10,11 @@ const Appnavigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Welcome" component={Welcome} />
+      
         <Stack.Screen name="Bike" component={BikeList} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 };
-
+  <Stack.Screen name="Welcome" component={Welcome} />
 export default Appnavigation;
