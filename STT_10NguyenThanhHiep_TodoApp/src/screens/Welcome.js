@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   StyleSheet,
   View,
@@ -8,19 +8,35 @@ import {
   Pressable,
   Alert,
 } from "react-native";
-import dataUser from "../../datauser";
 
 export const Welcome = ({ navigation, route }) => {
-  const [name, setUser] = useState("");
+  const [name, setUser] = useState();
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    // fetch data
+    const dataFetch = async () => {
+      const data = await (
+        await fetch("https://654460405a0b4b04436c4cda.mockapi.io/user")
+      ).json();
+
+      // set state when the data received
+      setData(data);
+    };
+
+    dataFetch();
+  }, []);
 
   const handleLogin = () => {
-    const user = dataUser.find((user) => user.email == name);
+    const user = data.find((user) => user.email == name);
     if (user) {
       navigation.navigate("Check", user);
     } else {
       alert("Email không có trong data!");
     }
   };
+  console.log("====================================");
+  console.log(data);
+  console.log("====================================");
 
   return (
     <View style={styles.container}>
@@ -49,7 +65,7 @@ export const Welcome = ({ navigation, route }) => {
       </View>
 
       <View style={styles.view2}>
-        <Pressable style={styles.Pre} onPress={()=>handleLogin()}>
+        <Pressable style={styles.Pre} onPress={() => handleLogin()}>
           <Text style={styles.textPre}>GET STARTED</Text>
           <Image
             source={require("../../assets/IMG/right-arrow.png")}

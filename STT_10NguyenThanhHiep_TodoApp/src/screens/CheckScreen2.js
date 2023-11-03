@@ -9,7 +9,6 @@ import {
   FlatList,
   Pressable,
 } from "react-native";
-import dataCheck from "../../data";
 import { useRoute } from "@react-navigation/native";
 
 export const CheckScreen2 = ({ navigation }) => {
@@ -61,7 +60,7 @@ export const CheckScreen2 = ({ navigation }) => {
 
       <View style={styles.view2}>
         <FlatList
-          data={dataCheck}
+          data={item}
           renderItem={({ item }) => (
             <View>
               <View style={styles.view3}>
@@ -79,7 +78,7 @@ export const CheckScreen2 = ({ navigation }) => {
                   )}
                 </Pressable>
 
-                <Text style={styles.text2}>{item.name}</Text>
+                <Text style={styles.text2}>{item.job}</Text>
                 <Pressable>
                   <Image
                     source={require("../../assets/IMG/edit.png")}
