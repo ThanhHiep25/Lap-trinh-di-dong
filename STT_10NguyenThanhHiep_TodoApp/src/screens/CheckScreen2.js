@@ -13,7 +13,7 @@ import { useRoute } from "@react-navigation/native";
 
 export const CheckScreen2 = ({ navigation }) => {
   const route = useRoute();
-  var item = route.params;
+  var items = route.params;
   const [checked, setChecked] = useState([]);
 
   const handleChecked = (id) => {
@@ -40,7 +40,7 @@ export const CheckScreen2 = ({ navigation }) => {
             style={styles.img}
           />
           <View>
-            <Text style={styles.text}>{item.name}</Text>
+            <Text style={styles.text}>{items.name}</Text>
             <Text style={styles.text1}>Have a good day</Text>
           </View>
         </View>
@@ -60,8 +60,8 @@ export const CheckScreen2 = ({ navigation }) => {
 
       <View style={styles.view2}>
         <FlatList
-          data={item}
-          renderItem={({ item }) => (
+          data={items}
+          renderItem={({ item, index }) => (
             <View>
               <View style={styles.view3}>
                 <Pressable onPress={() => handleChecked(item.id)}>
@@ -78,7 +78,7 @@ export const CheckScreen2 = ({ navigation }) => {
                   )}
                 </Pressable>
 
-                <Text style={styles.text2}>{item.job}</Text>
+                <Text style={styles.text2}>{item}</Text>
                 <Pressable>
                   <Image
                     source={require("../../assets/IMG/edit.png")}
@@ -88,7 +88,7 @@ export const CheckScreen2 = ({ navigation }) => {
               </View>
             </View>
           )}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item) => item + index}
         />
       </View>
 

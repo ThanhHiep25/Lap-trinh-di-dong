@@ -9,13 +9,14 @@ import {
   Alert,
 } from "react-native";
 
+
 export const Welcome = ({ navigation, route }) => {
   const [name, setUser] = useState();
   const [data, setData] = useState([]);
   useEffect(() => {
     // fetch data
     const dataFetch = async () => {
-      const data = await (
+       const data = await (
         await fetch("https://654460405a0b4b04436c4cda.mockapi.io/user")
       ).json();
 
