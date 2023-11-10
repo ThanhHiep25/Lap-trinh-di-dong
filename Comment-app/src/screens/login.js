@@ -1,5 +1,5 @@
 import { useNavigation, useRoute } from "@react-navigation/native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   StyleSheet,
   View,
@@ -8,12 +8,34 @@ import {
   TextInput,
   Pressable,
 } from "react-native";
-
+var url = "https://654460405a0b4b04436c4cda.mockapi.io/user";
 export const Login = () => {
+  const [state, setState] = useState([]);
+  const [name, setName] = useState();
+  const [pas, setPas] = useState();
+  const navigation = useNavigation();
+  const route = useRoute();
 
-     const navigation = useNavigation();
-     const route = useRoute();
-     
+  useEffect(() => {
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("====================================");
+        console.log(data);
+        console.log("====================================");
+        setState(data);
+      });
+  }, [state]);
+
+  const hanldCheck = () => {
+    const user = state.find((user) => user.email == name && user.pass == pas);
+    if (user) {
+      navigation.navigate("home", user);
+    } else {
+      alert("tai khoan chua dang ky");
+    }
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.view}>
@@ -28,13 +50,28 @@ export const Login = () => {
       </View>
 
       <View style={styles.view2}>
-        <TextInput style={styles.textIn} placeholder="Email or User name" />
-        <TextInput style={styles.textIn} placeholder="Password" />
+        <TextInput
+          style={styles.textIn}
+          placeholder="Email or User name"
+          value={name}
+          onChangeText={(text) => setName(text)}
+        />
+        <TextInput
+          style={styles.textIn}
+          placeholder="Password"
+          value={pas}
+          onChangeText={(text) => setPas(text)}
+        />
       </View>
 
       <View style={styles.view3}>
-        <Pressable style={styles.Pre}>
-          <Text style={styles.text1}>Sumbmit</Text>
+        <Pressable
+          style={styles.Pre}
+          onPress={() => {
+            hanldCheck();
+          }}
+        >
+          <Text style={styles.text1}>Submit</Text>
           <Image
             source={require("../../assets/IMG/sub.png")}
             style={styles.img1}
@@ -53,7 +90,7 @@ const styles = StyleSheet.create({
   view: {
     alignItems: "center",
     margin: 20,
-    marginTop: 50,
+    marginTop: 100,
   },
   view1: {
     alignItems: "center",
@@ -105,6 +142,12 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderColor: "#fff",
     borderWidth: 1,
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.5,
+    shadowRadius: 5,
   },
   Pre: {
     flexDirection: "row",
@@ -114,5 +157,11 @@ const styles = StyleSheet.create({
     width: 250,
     backgroundColor: "#61BDF1",
     borderRadius: 20,
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.5,
+    shadowRadius: 5,
   },
 });
