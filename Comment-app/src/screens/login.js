@@ -25,19 +25,34 @@ export const Login = () => {
         console.log("====================================");
         setState(data);
       });
-  }, [state]);
+  }, []);
 
   const hanldCheck = () => {
     const user = state.find((user) => user.email == name && user.pass == pas);
     if (user) {
       navigation.navigate("home", user);
+      setPas("");
     } else {
       alert("tai khoan chua dang ky");
+      setPas("");
     }
   };
 
   return (
     <View style={styles.container}>
+      <View style={styles.viewup}>
+        <Pressable
+          onPress={() => {
+            navigation.navigate("signup");
+          }}
+        >
+          <Image
+            source={require("../../assets/IMG/sign-up.png")}
+            style={styles.imgup}
+          />
+        </Pressable>
+      </View>
+
       <View style={styles.view}>
         <Image
           source={require("../../assets/IMG/imgLogin.png")}
@@ -90,7 +105,7 @@ const styles = StyleSheet.create({
   view: {
     alignItems: "center",
     margin: 20,
-    marginTop: 100,
+    marginTop: 80,
   },
   view1: {
     alignItems: "center",
@@ -105,6 +120,10 @@ const styles = StyleSheet.create({
     margin: 20,
     marginTop: 50,
   },
+  viewup: {
+    margin: 20,
+    alignItems: "flex-end",
+  },
   img: {
     height: 180,
     width: 180,
@@ -113,6 +132,11 @@ const styles = StyleSheet.create({
   img1: {
     height: 30,
     width: 30,
+    resizeMode: "contain",
+  },
+  imgup: {
+    height: 50,
+    width: 50,
     resizeMode: "contain",
   },
   text: {
@@ -141,7 +165,7 @@ const styles = StyleSheet.create({
     paddingLeft: 50,
     borderRadius: 10,
     borderColor: "#fff",
-    borderWidth: 1,
+    borderBottomWidth: 3,
     shadowOffset: {
       width: 0,
       height: 2,
