@@ -4,6 +4,7 @@ import { StyleSheet, View, Text, Image, ScrollView } from "react-native";
 const Des = () => {
   return (
     <View style={styles.container}>
+         <Text style={styles.textbl}>Bình luận:</Text>
       <ScrollView style={styles.view} showsVerticalScrollIndicator={false}>
         <View style={styles.viewcomment}>
           <View style={styles.view1}>
@@ -41,16 +42,16 @@ export default Des;
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: "center",
     margin: 20,
   },
   view: {
-    height: 120,
+    height: 220,
     width: 400,
     padding: 20,
     backgroundColor: "#42404078",
     borderRadius: 20,
   },
+  viewbl: { flexDirection: "column" },
   img: {
     height: 30,
     width: 30,
@@ -65,13 +66,19 @@ const styles = StyleSheet.create({
     backgroundColor: "#cac5c5",
     padding: 10,
     borderRadius: 10,
-    margin:10
+    margin: 10,
   },
   text: {
     marginLeft: 20,
     fontSize: 12,
     fontWeight: 600,
     fontFamily: "Arial",
+  },
+  textbl: {
+    fontSize: 20,
+    fontWeight: 600,
+    fontFamily: "Arial",
+    color: "#ffff",
   },
   text1: {
     marginLeft: 50,
